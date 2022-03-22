@@ -30,6 +30,16 @@ class App extends React.Component {
 
 }
 
+addProduct=(product)=>{
+  axios
+  .post('http://localhost:3031/addproduct', product)
+  .then(result=>{
+    this.setState({ProductsArr: result.data})
+  })
+  .catch(err=>{console.log(err);})
+}
+
+
   render() {
     const { isAuthenticated } = this.props.auth0;
     return(
@@ -41,7 +51,7 @@ class App extends React.Component {
                 <Home products={this.state.ProductsArr}/>
               </Route>
               <Route exact path="/Admen">
-                {isAuthenticated? <Admen products={this.state.ProductsArr} />: <Login/>}
+                {isAuthenticated? <Admen products={this.state.ProductsArr} add={this.addProduct}/>: <Login/>}
               </Route>
             </Switch>
             <Footer />
