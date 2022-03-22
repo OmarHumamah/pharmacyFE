@@ -4,10 +4,11 @@ import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
+  // Wrap the app with Auth0 provider for authentication and authorization
   <Auth0Provider
-  domain="omar-n-h.us.auth0.com"
-  clientId="ol2huSzeXkTS4xZ6kizAGzRGwR0Ab8lE"
-  redirectUri={window.location.origin}
+    domain="omar-n-h.us.auth0.com"
+    clientId="ol2huSzeXkTS4xZ6kizAGzRGwR0Ab8lE"
+    redirectUri={window.location.origin}
   >
     <App />
   </Auth0Provider>,
